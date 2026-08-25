@@ -1,0 +1,6 @@
+{
+  "name": "Jumia SKU Creator",
+  "description": "A premium bulk SKU creator and product catalog manager for Jumia marketplace sellers.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
