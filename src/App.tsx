@@ -1242,6 +1242,8 @@ export default function App() {
                                       alt={`${selectedFamily} ${color}`}
                                       className="h-full object-contain group-hover:scale-105 transition-transform duration-300"
                                       referrerPolicy="no-referrer"
+                                      loading="lazy"
+                                      decoding="async"
                                       id={`img-${selectedFamily}-${color}`}
                                     />
                                     <div className="absolute bottom-2 right-2 px-2.5 py-0.5 bg-slate-200/90 border border-slate-300/30 rounded-full text-[10px] font-bold text-slate-700 uppercase tracking-wider backdrop-blur-sm pointer-events-none">
@@ -1841,6 +1843,8 @@ export default function App() {
                                                               }}
                                                               className="max-h-full object-contain"
                                                               alt=""
+                                                              loading="lazy"
+                                                              decoding="async"
                                                               referrerPolicy="no-referrer"
                                                             />
                                                           </div>
@@ -2225,6 +2229,8 @@ export default function App() {
                                                                         }}
                                                                         className="max-h-full object-contain"
                                                                         alt=""
+                                                                        loading="lazy"
+                                                                        decoding="async"
                                                                         referrerPolicy="no-referrer"
                                                                       />
                                                                     </div>
