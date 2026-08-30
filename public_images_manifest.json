@@ -1,0 +1,2222 @@
+[
+ {
+  "brand": "honor",
+  "model": "400-5g",
+  "color": "desert-gold",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "honor",
+  "model": "400-5g",
+  "color": "meteor-silver",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "honor",
+  "model": "400-5g",
+  "color": "midnight-black",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "honor",
+  "model": "400-lite-5g",
+  "color": "velvet-black",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "honor",
+  "model": "400-lite-5g",
+  "color": "velvet-green",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "honor",
+  "model": "400-lite-5g",
+  "color": "velvet-grey",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "honor",
+  "model": "400-pro-5g",
+  "color": "meteor-silver",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "honor",
+  "model": "400-pro-5g",
+  "color": "midnight-black",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "honor",
+  "model": "400-pro-5g",
+  "color": "tidal-blue",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "honor",
+  "model": "600-5g",
+  "color": "black",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "honor",
+  "model": "600-5g",
+  "color": "golde-white",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "honor",
+  "model": "600-5g",
+  "color": "orange",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "honor",
+  "model": "600-lite-5g",
+  "color": "desert-gold",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "honor",
+  "model": "600-lite-5g",
+  "color": "sprout-green",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "honor",
+  "model": "600-lite-5g",
+  "color": "velvet-black",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "honor",
+  "model": "600-lite-5g",
+  "color": "velvet-grey",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "honor",
+  "model": "600-pro-5g",
+  "color": "black",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "honor",
+  "model": "600-pro-5g",
+  "color": "golden-white",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "honor",
+  "model": "600-pro-5g",
+  "color": "orange",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "honor",
+  "model": "x5c-4g",
+  "color": "midnight-black",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "honor",
+  "model": "x5c-4g",
+  "color": "tidal-blue",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "honor",
+  "model": "x5c-plus-4g",
+  "color": "midnight-black",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "honor",
+  "model": "x5c-plus-4g",
+  "color": "ocean-cyan",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "honor",
+  "model": "x6c-4g",
+  "color": "midnight-black",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "honor",
+  "model": "x6c-4g",
+  "color": "moonlight-white",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "honor",
+  "model": "x6c-4g",
+  "color": "ocean-cyan",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "honor",
+  "model": "x7d-4g-&-5g",
+  "color": "desert-gold",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "honor",
+  "model": "x7d-4g-&-5g",
+  "color": "meteor-silver",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "honor",
+  "model": "x7d-4g-&-5g",
+  "color": "velvet-black",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "honor",
+  "model": "x7e-4g",
+  "color": "light-blue",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "honor",
+  "model": "x7e-4g",
+  "color": "midnight-black",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "honor",
+  "model": "x7e-4g",
+  "color": "sunrise-orange",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "honor",
+  "model": "x7e-plus-5g",
+  "color": "desert-gold",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "honor",
+  "model": "x7e-plus-5g",
+  "color": "meteor-silver",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "honor",
+  "model": "x7e-plus-5g",
+  "color": "velvet-black",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "honor",
+  "model": "x8d-4g",
+  "color": "light-blue",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "honor",
+  "model": "x8d-4g",
+  "color": "velvet-black",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "honor",
+  "model": "x8d-4g",
+  "color": "velvet-grey",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "honor",
+  "model": "x9d-5g",
+  "color": "forest-green",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "honor",
+  "model": "x9d-5g",
+  "color": "midnight-black",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "honor",
+  "model": "x9d-5g",
+  "color": "reddish-brown",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "honor",
+  "model": "x9d-5g",
+  "color": "sunrise-gold",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "infinix",
+  "model": "gt-30-pro-5g",
+  "color": "dark-flare",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "infinix",
+  "model": "gt-50-pro-5g",
+  "color": "black-abyss",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "infinix",
+  "model": "gt-50-pro-5g",
+  "color": "red-blaze",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "infinix",
+  "model": "hot-60-5g",
+  "color": "caramel-glow",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "infinix",
+  "model": "hot-60-5g",
+  "color": "shadow-blue",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "infinix",
+  "model": "hot-60-5g",
+  "color": "sleek-black",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "infinix",
+  "model": "hot-60-5g",
+  "color": "tundra-green",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "infinix",
+  "model": "hot-60-pro+-4g",
+  "color": "coral-tides",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "infinix",
+  "model": "hot-60-pro+-4g",
+  "color": "sleek-black",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "infinix",
+  "model": "hot-60-pro+-4g",
+  "color": "sonic-yellow",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "infinix",
+  "model": "hot-60-pro+-4g",
+  "color": "titanium-silver",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "infinix",
+  "model": "hot-60-pro-4g",
+  "color": "coral-tides",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "infinix",
+  "model": "hot-60-pro-4g",
+  "color": "sapphire-blue",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "infinix",
+  "model": "hot-60-pro-4g",
+  "color": "sleek-black",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "infinix",
+  "model": "hot-60-pro-4g",
+  "color": "titanium-silver",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "infinix",
+  "model": "hot-60i-4g",
+  "color": "meadow-green",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "infinix",
+  "model": "hot-60i-4g",
+  "color": "neon-red",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "infinix",
+  "model": "hot-60i-4g",
+  "color": "shadow-blue",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "infinix",
+  "model": "hot-60i-4g",
+  "color": "sleek-black",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "infinix",
+  "model": "hot-60i-4g",
+  "color": "titanium-silver",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "infinix",
+  "model": "hot-70-4g",
+  "color": "dive-blue",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "infinix",
+  "model": "hot-70-4g",
+  "color": "green-texture",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "infinix",
+  "model": "hot-70-4g",
+  "color": "night-pulse",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "infinix",
+  "model": "hot-70-4g",
+  "color": "quiet-violet",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "infinix",
+  "model": "hot-70-4g",
+  "color": "silver-dancer",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "infinix",
+  "model": "hot-70-4g",
+  "color": "thermo-orange",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "infinix",
+  "model": "note-50s-5g",
+  "color": "burgendy-red",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "infinix",
+  "model": "note-50s-5g",
+  "color": "marine-drfit",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "infinix",
+  "model": "note-50s-5g",
+  "color": "mystic-plum",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "infinix",
+  "model": "note-50s-5g",
+  "color": "titanium-grey",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "infinix",
+  "model": "note-60-5g",
+  "color": "fizz-blue",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "infinix",
+  "model": "note-60-5g",
+  "color": "midnight-black",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "infinix",
+  "model": "note-60-5g",
+  "color": "mist-titanium",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "infinix",
+  "model": "note-60-5g",
+  "color": "rose-gold",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "infinix",
+  "model": "note-60-pro-5g",
+  "color": "deep-ocean-blue",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "infinix",
+  "model": "note-60-pro-5g",
+  "color": "mist-titanium",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "infinix",
+  "model": "note-60-pro-5g",
+  "color": "solar-orange",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "infinix",
+  "model": "note-60-pro-5g",
+  "color": "torino-black",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "infinix",
+  "model": "note-edge-5g",
+  "color": "lunar-titanium",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "infinix",
+  "model": "note-edge-5g",
+  "color": "shadow-black",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "infinix",
+  "model": "note-edge-5g",
+  "color": "silk-green",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "infinix",
+  "model": "note-edge-5g",
+  "color": "stellar-blue",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "infinix",
+  "model": "smart-10-4g",
+  "color": "iris-blue",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "infinix",
+  "model": "smart-10-4g",
+  "color": "sleek-black",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "infinix",
+  "model": "smart-10-4g",
+  "color": "titanium-silver",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "infinix",
+  "model": "smart-10-4g",
+  "color": "twilight-gold",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "infinix",
+  "model": "smart-20-4g",
+  "color": "cloudline-blue",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "infinix",
+  "model": "smart-20-4g",
+  "color": "polarise-titanium",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "infinix",
+  "model": "smart-20-4g",
+  "color": "shadow-black",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "infinix",
+  "model": "smart-20-4g",
+  "color": "sunlike-orange",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "motorola",
+  "model": "edge-60-5g",
+  "color": "pantone-glibraltar-sea",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "motorola",
+  "model": "edge-60-5g",
+  "color": "pantone-shamrock",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "motorola",
+  "model": "edge-60-fusion-5g",
+  "color": "pantone-amazonite",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "motorola",
+  "model": "edge-60-fusion-5g",
+  "color": "pantone-zephyr",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "motorola",
+  "model": "edge-60-fusion-5g",
+  "color": "patnone-slipstream",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "motorola",
+  "model": "edge-60-pro-5g",
+  "color": "pantone-dazzling-blue",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "motorola",
+  "model": "edge-60-pro-5g",
+  "color": "pantone-shadow",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "motorola",
+  "model": "edge-60-pro-5g",
+  "color": "pantone-sparkling-grape",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "motorola",
+  "model": "g35-5g",
+  "color": "guava-red",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "motorola",
+  "model": "g35-5g",
+  "color": "leaf-green",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "motorola",
+  "model": "g35-5g",
+  "color": "midnight-black",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "motorola",
+  "model": "g56-5g",
+  "color": "pantone-black-oyster",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "motorola",
+  "model": "g56-5g",
+  "color": "pantone-dazzling-blue",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "motorola",
+  "model": "g56-5g",
+  "color": "pantone-dill",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "motorola",
+  "model": "g56-5g",
+  "color": "pantone-gray-mist",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "oppo",
+  "model": "a5-4g",
+  "color": "aurora-green",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "oppo",
+  "model": "a5-4g",
+  "color": "mist-white",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "oppo",
+  "model": "a5-pro-4g",
+  "color": "mocha-brown",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "oppo",
+  "model": "a5-pro-4g",
+  "color": "olive-green",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "oppo",
+  "model": "a5i-4g",
+  "color": "nebula-red",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "oppo",
+  "model": "a5i-4g",
+  "color": "starry-purple",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "oppo",
+  "model": "a5x-4g",
+  "color": "laser-white",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "oppo",
+  "model": "a5x-4g",
+  "color": "midnight-blue",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "oppo",
+  "model": "a6-4g",
+  "color": "aurora-gold",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "oppo",
+  "model": "a6-4g",
+  "color": "sapphire-blue",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "oppo",
+  "model": "a6-pro-4g-&-5g",
+  "color": "rosewood-red",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "oppo",
+  "model": "a6-pro-4g-&-5g",
+  "color": "stellar-blue",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "oppo",
+  "model": "a6t-5g",
+  "color": "crystal-blue",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "oppo",
+  "model": "a6t-5g",
+  "color": "crystal-violet",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "oppo",
+  "model": "a6x-4g",
+  "color": "ice-blue",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "oppo",
+  "model": "a6x-4g",
+  "color": "plum-purple",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "oppo",
+  "model": "find-x9-pro-5g",
+  "color": "silk-white",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "oppo",
+  "model": "find-x9-pro-5g",
+  "color": "titanium-charcoal",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "oppo",
+  "model": "reno-15-5g",
+  "color": "aurora-white",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "oppo",
+  "model": "reno-15-5g",
+  "color": "twilight-blue",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "oppo",
+  "model": "reno-15-pro-5g",
+  "color": "aurora-blue",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "oppo",
+  "model": "reno-15-pro-5g",
+  "color": "dusk-brown",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "oppo",
+  "model": "reno-15f-5g",
+  "color": "aurora-blue",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "oppo",
+  "model": "reno-15f-5g",
+  "color": "twilight-blue",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "oppo",
+  "model": "reno-16-5g",
+  "color": "dream-purple",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "oppo",
+  "model": "reno-16-5g",
+  "color": "pop-white",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "oppo",
+  "model": "reno-16-5g",
+  "color": "twilight-violet",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "oppo",
+  "model": "reno-16f-5g",
+  "color": "pop-white",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "oppo",
+  "model": "reno-16f-5g",
+  "color": "twilight-violet",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "realme",
+  "model": "14-5g",
+  "color": "mecha-silver",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "realme",
+  "model": "14-5g",
+  "color": "storm-titanium",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "realme",
+  "model": "14-pro-5g",
+  "color": "pearl-white",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "realme",
+  "model": "14-pro-5g",
+  "color": "suede-grey",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "realme",
+  "model": "14-pro-plus-5g",
+  "color": "pearl-white",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "realme",
+  "model": "14-pro-plus-5g",
+  "color": "suede-grey",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "realme",
+  "model": "14t-5g",
+  "color": "lightning-purple",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "realme",
+  "model": "14t-5g",
+  "color": "obsidian-black",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "realme",
+  "model": "15-5g",
+  "color": "silk-pink",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "realme",
+  "model": "15-5g",
+  "color": "suit-titanium",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "realme",
+  "model": "15-pro-5g",
+  "color": "flowing-silver",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "realme",
+  "model": "15-pro-5g",
+  "color": "velvet-green",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "realme",
+  "model": "15t-5g",
+  "color": "flowing-silver",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "realme",
+  "model": "15t-5g",
+  "color": "suit-titanium",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "realme",
+  "model": "16-5g",
+  "color": "air-black",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "realme",
+  "model": "16-5g",
+  "color": "air-white",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "realme",
+  "model": "16-pro-5g",
+  "color": "master-gold",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "realme",
+  "model": "16-pro-5g",
+  "color": "pebble-grey",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "realme",
+  "model": "16-pro-plus-5g",
+  "color": "master-gold",
+  "images": []
+ },
+ {
+  "brand": "realme",
+  "model": "16-pro-plus-5g",
+  "color": "master-grey",
+  "images": []
+ },
+ {
+  "brand": "realme",
+  "model": "c71-4g",
+  "color": "forest-owl",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "realme",
+  "model": "c71-4g",
+  "color": "white-swan",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "realme",
+  "model": "c75x-4g",
+  "color": "coral-pink",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "realme",
+  "model": "c75x-4g",
+  "color": "oceanic-blue",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "realme",
+  "model": "c85-4g",
+  "color": "kingfisher-blue",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "realme",
+  "model": "c85-4g",
+  "color": "swan-black",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "realme",
+  "model": "c85-pro-4g",
+  "color": "parrot-purple",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "realme",
+  "model": "c85-pro-4g",
+  "color": "peacock-green",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "realme",
+  "model": "note-60x-4g",
+  "color": "marble-black",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "realme",
+  "model": "note-60x-4g",
+  "color": "wilderness-green",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "realme",
+  "model": "note-70-4g",
+  "color": "beach-gold",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "realme",
+  "model": "note-70-4g",
+  "color": "obsidian-black",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "samsung",
+  "model": "galaxy-a07-4g",
+  "color": "black",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "samsung",
+  "model": "galaxy-a07-4g",
+  "color": "green",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "samsung",
+  "model": "galaxy-a07-4g",
+  "color": "light-violet",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "samsung",
+  "model": "galaxy-a17-4g",
+  "color": "black",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "samsung",
+  "model": "galaxy-a17-4g",
+  "color": "grey",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "samsung",
+  "model": "galaxy-a17-4g",
+  "color": "light-blue",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "samsung",
+  "model": "galaxy-a17-5g",
+  "color": "black",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "samsung",
+  "model": "galaxy-a17-5g",
+  "color": "blue",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "samsung",
+  "model": "galaxy-a17-5g",
+  "color": "grey",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "samsung",
+  "model": "galaxy-a26-5g",
+  "color": "black",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "samsung",
+  "model": "galaxy-a26-5g",
+  "color": "peach-pink",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "samsung",
+  "model": "galaxy-a26-5g",
+  "color": "white",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "samsung",
+  "model": "galaxy-a27-5g",
+  "color": "black",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "samsung",
+  "model": "galaxy-a27-5g",
+  "color": "blue",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "samsung",
+  "model": "galaxy-a27-5g",
+  "color": "light-pink",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "samsung",
+  "model": "galaxy-a36-5g",
+  "color": "awesome-black",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "samsung",
+  "model": "galaxy-a36-5g",
+  "color": "awesome-lavender",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "samsung",
+  "model": "galaxy-a36-5g",
+  "color": "awesome-lime",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "samsung",
+  "model": "galaxy-a36-5g",
+  "color": "awesome-white",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "samsung",
+  "model": "galaxy-a37-5g",
+  "color": "aweseom-white",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "samsung",
+  "model": "galaxy-a37-5g",
+  "color": "awesome-charcoal",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "samsung",
+  "model": "galaxy-a37-5g",
+  "color": "awesome-gray-green",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "samsung",
+  "model": "galaxy-a37-5g",
+  "color": "awesome-lavender",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "samsung",
+  "model": "galaxy-a56-5g",
+  "color": "awesome-graphite",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "samsung",
+  "model": "galaxy-a56-5g",
+  "color": "awesome-lightgray",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "samsung",
+  "model": "galaxy-a56-5g",
+  "color": "awesome-olive",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "samsung",
+  "model": "galaxy-a56-5g",
+  "color": "awesome-pink",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "samsung",
+  "model": "galaxy-a57-5g",
+  "color": "awesome-gray",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "samsung",
+  "model": "galaxy-a57-5g",
+  "color": "awesome-icyblue",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "samsung",
+  "model": "galaxy-a57-5g",
+  "color": "awesome-lilac",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "samsung",
+  "model": "galaxy-a57-5g",
+  "color": "awesome-navy",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "samsung",
+  "model": "galaxy-s25-5g",
+  "color": "icy-blue",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "samsung",
+  "model": "galaxy-s25-5g",
+  "color": "mint",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "samsung",
+  "model": "galaxy-s25-5g",
+  "color": "navy",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "samsung",
+  "model": "galaxy-s25-5g",
+  "color": "silver-shadow",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "samsung",
+  "model": "galaxy-s25-fe-5g",
+  "color": "icyblue",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "samsung",
+  "model": "galaxy-s25-fe-5g",
+  "color": "jet-black",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "samsung",
+  "model": "galaxy-s25-fe-5g",
+  "color": "navy",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "samsung",
+  "model": "galaxy-s25-fe-5g",
+  "color": "white",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "samsung",
+  "model": "galaxy-s25-plus-5g",
+  "color": "icy-blue",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "samsung",
+  "model": "galaxy-s25-plus-5g",
+  "color": "mint",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "samsung",
+  "model": "galaxy-s25-plus-5g",
+  "color": "navy",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "samsung",
+  "model": "galaxy-s25-plus-5g",
+  "color": "silver-shadow",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "samsung",
+  "model": "galaxy-s25-ultra-5g",
+  "color": "titanium-black",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "samsung",
+  "model": "galaxy-s25-ultra-5g",
+  "color": "titanium-gray",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "samsung",
+  "model": "galaxy-s25-ultra-5g",
+  "color": "titanium-silver-blue",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "samsung",
+  "model": "galaxy-s25-ultra-5g",
+  "color": "titanium-white-silver",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "samsung",
+  "model": "galaxy-s26-5g",
+  "color": "black",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "samsung",
+  "model": "galaxy-s26-5g",
+  "color": "cobalt-violet",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "samsung",
+  "model": "galaxy-s26-5g",
+  "color": "sky-blue",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "samsung",
+  "model": "galaxy-s26-5g",
+  "color": "white",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "samsung",
+  "model": "galaxy-s26-plus-5g",
+  "color": "black",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "samsung",
+  "model": "galaxy-s26-plus-5g",
+  "color": "cobalt-violet",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "samsung",
+  "model": "galaxy-s26-plus-5g",
+  "color": "sky-blue",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "samsung",
+  "model": "galaxy-s26-plus-5g",
+  "color": "white",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "samsung",
+  "model": "galaxy-s26-ultra-5g",
+  "color": "black",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "samsung",
+  "model": "galaxy-s26-ultra-5g",
+  "color": "cobalt-violet",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "samsung",
+  "model": "galaxy-s26-ultra-5g",
+  "color": "sky-blue",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "samsung",
+  "model": "galaxy-s26-ultra-5g",
+  "color": "white",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "vivo",
+  "model": "v60-5g",
+  "color": "asupicious-gold",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "vivo",
+  "model": "v60-5g",
+  "color": "mist-grey",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "vivo",
+  "model": "v60-lite-4g-&-5g",
+  "color": "elegant-black",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "vivo",
+  "model": "v60-lite-4g-&-5g",
+  "color": "titanium-blue",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "vivo",
+  "model": "v70-5g",
+  "color": "dune-gray",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "vivo",
+  "model": "v70-5g",
+  "color": "matte-brown",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "vivo",
+  "model": "v70-fe-5g",
+  "color": "ocean-blue",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "vivo",
+  "model": "v70-fe-5g",
+  "color": "titanium-silver",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "vivo",
+  "model": "x300-pro-5g",
+  "color": "dune-brown",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "vivo",
+  "model": "x300-pro-5g",
+  "color": "phantom-black",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "vivo",
+  "model": "y04-4g",
+  "color": "dark-green",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "vivo",
+  "model": "y04-4g",
+  "color": "titanium-gold",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "vivo",
+  "model": "y05-4g",
+  "color": "summit-platinum",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "vivo",
+  "model": "y05-4g",
+  "color": "voyage-black",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "vivo",
+  "model": "y21d-4g",
+  "color": "coral-red",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "vivo",
+  "model": "y21d-4g",
+  "color": "jade-green",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "vivo",
+  "model": "y29-4g",
+  "color": "elegant-white",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "vivo",
+  "model": "y29-4g",
+  "color": "noble-brown",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "vivo",
+  "model": "y31d-4g",
+  "color": "gold",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "vivo",
+  "model": "y31d-4g",
+  "color": "grey",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "xiaomi",
+  "model": "poco-c85-4g",
+  "color": "black",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "xiaomi",
+  "model": "poco-c85-4g",
+  "color": "green",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "xiaomi",
+  "model": "poco-c85-4g",
+  "color": "purple",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "xiaomi",
+  "model": "redmi-15-4g",
+  "color": "midnight-black",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "xiaomi",
+  "model": "redmi-15-4g",
+  "color": "sandy-purple",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "xiaomi",
+  "model": "redmi-15-4g",
+  "color": "titan-grey",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "xiaomi",
+  "model": "redmi-15c-4g",
+  "color": "midnight-black",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "xiaomi",
+  "model": "redmi-15c-4g",
+  "color": "mint-green",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "xiaomi",
+  "model": "redmi-15c-4g",
+  "color": "moonlight-blue",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "xiaomi",
+  "model": "redmi-15c-4g",
+  "color": "twilight-orange",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "xiaomi",
+  "model": "redmi-a5-4g",
+  "color": "lake-green",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "xiaomi",
+  "model": "redmi-a5-4g",
+  "color": "midnight-black",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "xiaomi",
+  "model": "redmi-a5-4g",
+  "color": "ocean-blue",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "xiaomi",
+  "model": "redmi-a5-4g",
+  "color": "sandy-gold",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "xiaomi",
+  "model": "redmi-a7-pro-4g",
+  "color": "black",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "xiaomi",
+  "model": "redmi-a7-pro-4g",
+  "color": "mist-blue",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "xiaomi",
+  "model": "redmi-a7-pro-4g",
+  "color": "palm-green",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "xiaomi",
+  "model": "redmi-a7-pro-4g",
+  "color": "sunset-orange",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "xiaomi",
+  "model": "redmi-note-15-4g",
+  "color": "black",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "xiaomi",
+  "model": "redmi-note-15-4g",
+  "color": "forest-green",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "xiaomi",
+  "model": "redmi-note-15-4g",
+  "color": "glacier-blue",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "xiaomi",
+  "model": "redmi-note-15-4g",
+  "color": "purple",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "xiaomi",
+  "model": "redmi-note-15-5g",
+  "color": "black",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "xiaomi",
+  "model": "redmi-note-15-5g",
+  "color": "glacier-blue",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "xiaomi",
+  "model": "redmi-note-15-5g",
+  "color": "mist-purple",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "xiaomi",
+  "model": "redmi-note-15-pro+-5g",
+  "color": "black",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "xiaomi",
+  "model": "redmi-note-15-pro+-5g",
+  "color": "glacier-blue",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "xiaomi",
+  "model": "redmi-note-15-pro+-5g",
+  "color": "mocha-brown",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "xiaomi",
+  "model": "redmi-note-15-pro-5g",
+  "color": "black",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "xiaomi",
+  "model": "redmi-note-15-pro-5g",
+  "color": "glacier-blue",
+  "images": [
+   "1.jpg"
+  ]
+ },
+ {
+  "brand": "xiaomi",
+  "model": "redmi-note-15-pro-5g",
+  "color": "titanium",
+  "images": [
+   "1.jpg"
+  ]
+ }
+]

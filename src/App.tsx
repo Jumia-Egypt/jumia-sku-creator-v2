@@ -290,15 +290,12 @@ export default function App() {
   // Helper to format thumbnail image using Supabase bucket mapping
   const fThumb = (u: string): string => {
     if (!u) return "";
-    let pa;
-    try {
-      pa = new URL(u).pathname;
-    } catch (e) {
-      pa = u;
+    // Serve images directly from public folder with base path
+    const basePath = "/jumia-sku-creator-v2";
+    if (u.startsWith("/")) {
+      return basePath + u;
     }
-    pa = pa.replace(/\.[^./]+$/, "");
-    const slug = pa.replace(/^\/+/, "").replace(/\//g, "_");
-    return `${SUPABASE_URL}/storage/v1/object/public/thumbs/${slug}.webp`;
+    return u;
   };
 
   const nodeAt = (p: string[]) => {
