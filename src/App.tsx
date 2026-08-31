@@ -543,6 +543,29 @@ export default function App() {
 
     setSubmitLoading(true);
 
+    // Fetch authoritative master_data rows by barcode for all Android items being
+    // submitted, so color/image/description/highlights are saved directly on the
+    // submission row instead of relying on a later name-text match at export time.
+    const androidBarcodes = Array.from(
+      new Set(queue.filter((q) => !q.isIOS && q.barcode).map((q) => q.barcode))
+    );
+
+    let masterByBarcode: Record<string, any> = {};
+    if (androidBarcodes.length) {
+      const { data: masterRows, error: masterFetchError } = await sb
+        .from("master_data")
+        .select("barcode,name_en,name_ar,long_desc_en,long_desc_ar,highlights_en,highlights_ar,color,image1")
+        .in("barcode", androidBarcodes);
+
+      if (masterFetchError) {
+        console.error("Master data lookup failed during submit:", masterFetchError.message);
+      } else {
+        (masterRows || []).forEach((m) => {
+          masterByBarcode[m.barcode] = m;
+        });
+      }
+    }
+
     const submissionRows = queue.map((q) => {
       const row: any = {
         shop_name: shopName,
@@ -564,6 +587,18 @@ export default function App() {
         row.highlights_ar = q.hl_ar || "";
         row.color = q.color || "";
         row.image1 = q.img || "";
+      } else {
+        // Android: save the full record now, using the master catalog match by
+        // barcode (authoritative, since barcode is unique per color+storage) and
+        // falling back to what the queue item already captured client-side.
+        const m = q.barcode ? masterByBarcode[q.barcode] : undefined;
+        row.name_ar = m?.name_ar || "";
+        row.desc_en = m?.long_desc_en || "";
+        row.desc_ar = m?.long_desc_ar || "";
+        row.highlights_en = m?.highlights_en || "";
+        row.highlights_ar = m?.highlights_ar || "";
+        row.color = m?.color || q.color || "";
+        row.image1 = m?.image1 || q.img || "";
       }
 
       return row;
@@ -683,8 +718,13 @@ export default function App() {
         return;
       }
 
+      // Matched primarily by barcode (unique per color+storage, stable even if a
+      // product name is edited later) with name as a fallback for older
+      // submissions recorded before barcodes were saved on every row.
+      const byBarcode: Record<string, any> = {};
       const byName: Record<string, any> = {};
       (masterData || []).forEach((m) => {
+        if (m.barcode) byBarcode[m.barcode] = m;
         byName[m.name_en] = m;
       });
 
@@ -700,12 +740,15 @@ export default function App() {
       csvRows.push(BULK_HEADERS.map(csvEsc).join(","));
 
       let matchedCount = 0;
+      let fallbackCount = 0;
       listToExport.forEach((s) => {
-        const m = byName[s.name_en];
+        const m = (s.barcode && byBarcode[s.barcode]) || byName[s.name_en];
         const isIOSVariant = !!s.is_ios;
 
-        // Skip unmatched Android items to maintain file integrity
-        if (!isIOSVariant && !m) return;
+        // No catalog match (renamed/removed product, or barcode-less legacy row):
+        // fall back to what was saved directly on the submission itself rather
+        // than dropping the row from the export.
+        if (!m && !isIOSVariant) fallbackCount++;
         matchedCount++;
 
         const bc = isIOSVariant ? s.barcode || "" : m?.barcode || s.barcode || "";
@@ -737,29 +780,33 @@ export default function App() {
             rowArr[67 + k] = (imgs[k] || "").trim();
           }
         } else {
-          const nameAR = m.name_ar || "";
+          // Prefer the live catalog match (covers image2-7, freshest description);
+          // fall back to the values saved on the submission at Submit time.
+          const nameAR = (m?.name_ar || s.name_ar || "");
           const colorAR = nameAR.indexOf(" - ") > -1 ? nameAR.split(" - ").pop()?.trim() || "" : "";
 
-          rowArr[0] = m.name_en || "";
-          rowArr[1] = m.name_ar || "";
-          rowArr[3] = m.long_desc_en || "";
-          rowArr[4] = m.long_desc_ar || "";
+          rowArr[0] = m?.name_en || s.name_en || "";
+          rowArr[1] = nameAR;
+          rowArr[3] = m?.long_desc_en || s.desc_en || "";
+          rowArr[4] = m?.long_desc_ar || s.desc_ar || "";
           rowArr[6] = sku;
           rowArr[7] = sku;
-          rowArr[8] = m.brand || "";
+          rowArr[8] = m?.brand || s.brand || "";
           rowArr[9] = "1002300 - Phones & Tablets / Mobile Phones / Smartphones / Android Phones";
           rowArr[10] = bc;
           rowArr[15] = 0;
           rowArr[16] = "...";
-          rowArr[21] = m.color || "";
+          rowArr[21] = m?.color || s.color || "";
           rowArr[22] = colorAR;
-          rowArr[42] = m.model_family || "";
+          rowArr[42] = m?.model_family || s.model_family || "";
           rowArr[52] = s.warranty || "";
           rowArr[54] = s.country || "";
-          rowArr[58] = m.highlights_en || "";
-          rowArr[59] = m.highlights_ar || "";
+          rowArr[58] = m?.highlights_en || s.highlights_en || "";
+          rowArr[59] = m?.highlights_ar || s.highlights_ar || "";
 
-          const imgs = [m.image1, m.image2, m.image3, m.image4, m.image5, m.image6, m.image7];
+          const imgs = m
+            ? [m.image1, m.image2, m.image3, m.image4, m.image5, m.image6, m.image7]
+            : [s.image1 || ""];
           for (let k = 0; k < 7; k++) {
             rowArr[67 + k] = (imgs[k] || "").trim();
           }
@@ -768,9 +815,11 @@ export default function App() {
         csvRows.push(rowArr.map(csvEsc).join(","));
       });
 
-      if (matchedCount === 0) {
-        alert("None of the submitted models matched our primary catalogs. Export aborted.");
-        return;
+      if (fallbackCount > 0) {
+        console.warn(
+          `${fallbackCount} Android submission(s) had no live catalog match by barcode/name; ` +
+          `used the data saved at submit time instead (still exported, not dropped).`
+        );
       }
 
       // Create download blob
