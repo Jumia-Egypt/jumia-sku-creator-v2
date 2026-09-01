@@ -163,7 +163,7 @@ export default function App() {
     try {
       const { data, error } = await sb
         .from("master_data")
-        .select("barcode,brand,model_family,ram,rom,color,name_en,image1")
+        .select("barcode,brand,model_family,ram,rom,color,name_en,image1,image1_hosted")
         .order("id", { ascending: true });
 
       if (error) {
@@ -195,7 +195,7 @@ export default function App() {
 
           if (!customAData[br][fam][col]) {
             customAData[br][fam][col] = {
-              img: m.image1 || "",
+              img: (m as any).image1_hosted || m.image1 || "",
               variants: []
             };
           }
@@ -330,6 +330,12 @@ export default function App() {
     // never used by the CSV/Vendor-Center export, which reads image1-image7
     // straight from the row, so the real full-resolution direct link still
     // goes out untouched there.
+    if (/supabase\.co\/storage\//i.test(u)) {
+      // Already a self-hosted, pre-resized (800px/q85) copy in our own
+      // Supabase Storage bucket -- serve it directly instead of adding an
+      // extra external round-trip through the resize proxy.
+      return u;
+    }
     if (/^https?:\/\//i.test(u) && !/postimg\.cc/i.test(u)) {
       // weserv.nl (the free resize proxy used below) blocks postimg.cc by
       // policy -- proxying those would break them entirely instead of just
