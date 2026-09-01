@@ -321,6 +321,22 @@ export default function App() {
     if (u.startsWith("/")) {
       return basePath + u;
     }
+    // External vendor photos (real, full-resolution direct links from the
+    // sheet, hosted on ibb.co/postimg.cc/etc.) are never resized -- unlike
+    // Round 2's local images, nothing compresses these before they reach the
+    // browser. Proxy on-site thumbnails through a free image-resizing CDN so
+    // the picker loads a small compressed copy instead of the original,
+    // often multi-MB, file. This ONLY affects on-site display: fThumb is
+    // never used by the CSV/Vendor-Center export, which reads image1-image7
+    // straight from the row, so the real full-resolution direct link still
+    // goes out untouched there.
+    if (/^https?:\/\//i.test(u) && !/postimg\.cc/i.test(u)) {
+      // weserv.nl (the free resize proxy used below) blocks postimg.cc by
+      // policy -- proxying those would break them entirely instead of just
+      // being slow, so leave postimg.cc-hosted links unproxied and unchanged.
+      const bare = u.replace(/^https?:\/\//i, "").trim();
+      return `https://images.weserv.nl/?url=${encodeURIComponent(bare)}&w=320&q=75&output=webp`;
+    }
     return u;
   };
 
