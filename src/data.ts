@@ -7,6 +7,7 @@ import { FamilyCatalog, TreeItem } from "./types";
 
 export const INITIAL_TREE: Record<string, TreeItem> = {
   "Phones": {
+    active: true,
     children: {
       "Android": { active: true },
       "iOS": { active: false },
@@ -14,12 +15,14 @@ export const INITIAL_TREE: Record<string, TreeItem> = {
     }
   },
   "Tablets": {
+    active: false,
     children: {
       "Android": { active: false },
       "iOS": { active: false }
     }
   },
   "Accessories": {
+    active: false,
     children: {
       "Smart Watches": { active: false },
       "Bluetooth Earbuds & Over Earphones": { active: false },

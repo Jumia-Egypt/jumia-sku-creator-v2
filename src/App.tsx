@@ -1129,7 +1129,7 @@ export default function App() {
                       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                         {Object.keys(nodeAt(path) || {}).map((label) => {
                           const item = (nodeAt(path) as Record<string, any>)[label];
-                          const isActive = path.length === 0 ? true : !!item.active;
+                          const isActive = !!item.active;
 
                           return (
                             <button
