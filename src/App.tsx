@@ -72,7 +72,7 @@ const sb = createClient(SUPABASE_URL, SUPABASE_KEY, {
   }
 });
 
-const ADMIN_PASSWORD = "P@$$w0rD";
+const ADMIN_EMAIL = "george.ayman@jumia.com";
 
 export default function App() {
   // Navigation & View Mode
@@ -112,6 +112,7 @@ export default function App() {
 
   // Admin Panel States
   const [adminAuthenticated, setAdminAuthenticated] = useState(false);
+  const [adminLoginBusy, setAdminLoginBusy] = useState(false);
   const [adminPassword, setAdminPassword] = useState("");
   const [adminPasswordError, setAdminPasswordError] = useState(false);
   const [submissions, setSubmissions] = useState<Submission[]>([]);
@@ -679,15 +680,43 @@ export default function App() {
     }
   };
 
-  // Admin authenticate
-  const handleAdminLogin = (e?: React.FormEvent) => {
+  // Admin authenticate -- real Supabase Auth sign-in (not just a client-side
+  // string compare). The `submissions` DELETE policy now requires an
+  // authenticated session whose email matches ADMIN_EMAIL, so this login is
+  // what actually unlocks delete access at the database level, not just in
+  // this UI.
+  const handleAdminLogin = async (e?: React.FormEvent) => {
     if (e) e.preventDefault();
-    if (adminPassword === ADMIN_PASSWORD) {
+    setAdminLoginBusy(true);
+    setAdminPasswordError(false);
+    try {
+      const { error } = await sb.auth.signInWithPassword({
+        email: ADMIN_EMAIL,
+        password: adminPassword
+      });
+      if (error) {
+        setAdminPasswordError(true);
+        return;
+      }
       setAdminAuthenticated(true);
-      setAdminPasswordError(false);
+      setAdminPassword("");
       loadAdminSubmissions();
-    } else {
+    } catch (err) {
+      console.error("Admin login exception:", err);
       setAdminPasswordError(true);
+    } finally {
+      setAdminLoginBusy(false);
+    }
+  };
+
+  const handleAdminLogout = async () => {
+    try {
+      await sb.auth.signOut();
+    } catch (err) {
+      console.error("Admin logout exception:", err);
+    } finally {
+      setAdminAuthenticated(false);
+      setSubmissions([]);
     }
   };
 
@@ -2040,9 +2069,10 @@ export default function App() {
 
                     <button
                       type="submit"
-                      className="w-full py-3 px-4 bg-brand hover:bg-brand-dark text-white font-bold rounded-xl transition-all shadow-md"
+                      disabled={adminLoginBusy}
+                      className="w-full py-3 px-4 bg-brand hover:bg-brand-dark text-white font-bold rounded-xl transition-all shadow-md disabled:opacity-60 disabled:cursor-not-allowed"
                     >
-                      Unlock Dashboard
+                      {adminLoginBusy ? "Checking..." : "Unlock Dashboard"}
                     </button>
                   </form>
                 </div>
@@ -2067,6 +2097,14 @@ export default function App() {
                       title="Reload submissions list"
                     >
                       <RefreshCw className={`w-4 h-4 ${adminLoading ? "animate-spin" : ""}`} />
+                    </button>
+
+                    <button
+                      onClick={handleAdminLogout}
+                      className="p-2.5 bg-slate-100 hover:bg-slate-200 border border-slate-200 rounded-xl text-slate-600 transition-all"
+                      title="Log out"
+                    >
+                      <Lock className="w-4 h-4" />
                     </button>
 
                     <button
