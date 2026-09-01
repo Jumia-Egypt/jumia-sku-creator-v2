@@ -207,6 +207,32 @@ export default function App() {
           });
         });
 
+        // Sort each color's storage variants ascending by ROM (then RAM) so
+        // display order is consistent regardless of the order rows were
+        // inserted into the database (fetch is ordered by id, not by size).
+        const parseGb = (part: string) => {
+          const match = (part || "").match(/([\d.]+)\s*(TB|GB|MB)?/i);
+          if (!match) return 0;
+          const num = parseFloat(match[1]);
+          const unit = (match[2] || "GB").toUpperCase();
+          if (unit === "TB") return num * 1024;
+          if (unit === "MB") return num / 1024;
+          return num;
+        };
+        Object.values(customAData).forEach((fams) =>
+          Object.values(fams).forEach((cols) =>
+            Object.values(cols).forEach((colDetail) => {
+              colDetail.variants.sort((a, b) => {
+                const [aRam, aRom] = a.s.split("/").map((p) => p.trim());
+                const [bRam, bRom] = b.s.split("/").map((p) => p.trim());
+                const romDiff = parseGb(aRom) - parseGb(bRom);
+                if (romDiff !== 0) return romDiff;
+                return parseGb(aRam) - parseGb(bRam);
+              });
+            })
+          )
+        );
+
         setAData(customAData);
         setSampleFams(customSampleFams);
         setBrands(customBrands);
