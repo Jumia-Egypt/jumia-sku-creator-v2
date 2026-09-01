@@ -87,6 +87,8 @@ export default function App() {
   const [brands, setBrands] = useState<string[]>(FALLBACK_BRANDS);
   const [sampleFams, setSampleFams] = useState<Record<string, string[]>>(FALLBACK_SAMPLE_FAMS);
   const [aData, setAData] = useState<Record<string, Record<string, FamilyCatalog>>>(FALLBACK_ADATA);
+  // Set of "brand|model_family" keys currently flagged as a new launch (orange tag), driven by master_data.is_new_launch
+  const [newLaunchFamilies, setNewLaunchFamilies] = useState<Set<string>>(new Set());
 
   // iOS catalog lists loaded from DB
   const [iosCatalogLoaded, setIosCatalogLoaded] = useState(false);
@@ -164,7 +166,7 @@ export default function App() {
     try {
       const { data, error } = await sb
         .from("master_data")
-        .select("barcode,brand,model_family,ram,rom,color,name_en,image1,image1_hosted")
+        .select("barcode,brand,model_family,ram,rom,color,name_en,image1,image1_hosted,is_new_launch")
         .order("id", { ascending: true });
 
       if (error) {
@@ -176,6 +178,7 @@ export default function App() {
         const customAData: Record<string, Record<string, FamilyCatalog>> = {};
         const customSampleFams: Record<string, string[]> = {};
         const customBrands: string[] = [];
+        const customNewLaunchFamilies = new Set<string>();
 
         data.forEach((m) => {
           const br = m.brand;
@@ -199,6 +202,10 @@ export default function App() {
               img: (m as any).image1_hosted || m.image1 || "",
               variants: []
             };
+          }
+
+          if ((m as any).is_new_launch) {
+            customNewLaunchFamilies.add(`${br}|${fam}`);
           }
 
           customAData[br][fam][col].variants.push({
@@ -237,6 +244,7 @@ export default function App() {
         setAData(customAData);
         setSampleFams(customSampleFams);
         setBrands(customBrands);
+        setNewLaunchFamilies(customNewLaunchFamilies);
       }
     } catch (err) {
       console.warn("Catalog fetch request exception:", err);
@@ -1239,6 +1247,11 @@ export default function App() {
                         <h3 className="font-bold text-lg text-slate-800">
                           {selectedFamily ? selectedFamily : `Select Model Family (${currentBrand})`}
                         </h3>
+                        {selectedFamily && newLaunchFamilies.has(`${currentBrand}|${selectedFamily}`) && (
+                          <span className="px-2.5 py-1 bg-orange-500 text-white text-[10px] font-extrabold uppercase tracking-wide rounded-full shadow-sm">
+                            New Launch
+                          </span>
+                        )}
                       </div>
 
                       <div className="flex items-center gap-2">
@@ -1337,8 +1350,13 @@ export default function App() {
                                       setSelectedFamily(f);
                                       setFamilySelections({});
                                     }}
-                                    className="p-3 bg-slate-50 hover:bg-brand/10 border border-slate-200 hover:border-brand text-slate-700 hover:text-slate-950 font-semibold text-xs sm:text-sm rounded-xl text-center transition-all shadow-sm cursor-pointer"
+                                    className="relative p-3 bg-slate-50 hover:bg-brand/10 border border-slate-200 hover:border-brand text-slate-700 hover:text-slate-950 font-semibold text-xs sm:text-sm rounded-xl text-center transition-all shadow-sm cursor-pointer"
                                   >
+                                    {newLaunchFamilies.has(`${currentBrand}|${f}`) && (
+                                      <span className="absolute -top-2 -right-2 px-2 py-0.5 bg-orange-500 text-white text-[9px] font-extrabold uppercase tracking-wide rounded-full shadow-sm">
+                                        New Launch
+                                      </span>
+                                    )}
                                     {f}
                                   </button>
                                 ))}
