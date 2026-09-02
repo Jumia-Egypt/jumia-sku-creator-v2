@@ -821,6 +821,27 @@ export default function App() {
         return /[",\n]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s;
       };
 
+      // Long all-digit values (barcodes, SKUs) get silently mangled by Excel/Sheets:
+      // opening the CSV normally auto-detects them as numbers, and a 13-digit
+      // barcode displayed in General format gets shown in scientific notation
+      // (e.g. 6.93255E+12), which -- if read back as digits -- looks like
+      // "6932550000000" (zero-padded after ~6 significant figures). The
+      // underlying CSV value was never actually wrong, but this happened on
+      // every normal "just double-click the file" open, so it needed a real
+      // fix here, not just an explanation. The standard fix: wrap long numeric
+      // strings as an Excel formula literal (="123..."), which forces Excel to
+      // display them as exact text instead of auto-converting to a number.
+      const csvForceText = (v: any) => {
+        if (v === null || v === undefined || v === "") return "";
+        const s = String(v);
+        if (/^\d{6,}$/.test(s)) return '="' + s.replace(/"/g, '""') + '"';
+        return csvEsc(v);
+      };
+      // Column indices that hold barcode/SKU-style long digit strings:
+      // SellerSKU (6), ParentSKU (7), GTIN_Barcode (10).
+      const FORCE_TEXT_COLS = new Set([6, 7, 10]);
+      const csvEscRow = (v: any, i: number) => (FORCE_TEXT_COLS.has(i) ? csvForceText(v) : csvEsc(v));
+
       // Header row
       csvRows.push(BULK_HEADERS.map(csvEsc).join(","));
 
@@ -897,7 +918,7 @@ export default function App() {
           }
         }
 
-        csvRows.push(rowArr.map(csvEsc).join(","));
+        csvRows.push(rowArr.map(csvEscRow).join(","));
       });
 
       if (fallbackCount > 0) {
