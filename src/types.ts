@@ -57,6 +57,7 @@ export interface Submission {
   barcode?: string;
   seller_sku?: string;
   created_at?: string;
+  batch_id?: string;
   is_ios?: boolean;
   name_ar?: string;
   desc_en?: string;

@@ -33,7 +33,8 @@ import {
   ShoppingBag,
   ExternalLink,
   Plus as PlusIcon,
-  Trash
+  Trash,
+  Clock
 } from "lucide-react";
 
 import {
@@ -122,6 +123,7 @@ export default function App() {
   const [adminSearch, setAdminSearch] = useState("");
   const [clearSubsArmed, setClearSubsArmed] = useState(false);
   const [adminOpenVendors, setAdminOpenVendors] = useState<Record<string, boolean>>({});
+  const [adminOpenBatches, setAdminOpenBatches] = useState<Record<string, boolean>>({});
   const [adminOpenBrands, setAdminOpenBrands] = useState<Record<string, boolean>>({});
   const [adminOpenFamilies, setAdminOpenFamilies] = useState<Record<string, boolean>>({});
 
@@ -623,9 +625,17 @@ export default function App() {
       }
     }
 
+    // One shared id for every line in this Submit click, so the Admin dashboard
+    // can group and delete this exact submission request as a whole, distinct
+    // from any other batch this same shop submits later (rather than relying
+    // only on shop_name, which merges every submission from one vendor into a
+    // single ever-growing bucket with no way to tell separate requests apart).
+    const batchId = crypto.randomUUID();
+
     const submissionRows = queue.map((q) => {
       const row: any = {
         shop_name: shopName,
+        batch_id: batchId,
         name_en: q.name,
         brand: q.brand,
         model_family: q.family,
@@ -763,6 +773,29 @@ export default function App() {
     }
   };
 
+  // Delete one whole submission request (every line a vendor submitted in a
+  // single Submit click) at once, identified by batch_id. Falls back to
+  // deleting by the shared shop_name + created_at pair for any pre-migration
+  // row that predates batch_id (should not happen going forward, but keeps
+  // old data deletable too).
+  const handleAdminDeleteBatch = async (batchId: string | undefined, shopName: string, createdAt: string | undefined) => {
+    if (!confirm("Delete this entire submission request? This removes every line in it.")) return;
+    try {
+      const query = batchId
+        ? sb.from("submissions").delete().eq("batch_id", batchId)
+        : sb.from("submissions").delete().eq("shop_name", shopName).eq("created_at", createdAt as string);
+      const { error } = await query;
+      if (error) {
+        alert("Delete failed: " + error.message);
+        return;
+      }
+      triggerToast("Submission request deleted.");
+      loadAdminSubmissions();
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   const handleAdminClearAll = async () => {
     if (!clearSubsArmed) {
       setClearSubsArmed(true);
@@ -786,8 +819,10 @@ export default function App() {
   };
 
   // Export & Download CSV Bulk Sheet
-  const handleDownloadCsv = async (filterShopName?: string) => {
-    const listToExport = filterShopName
+  const handleDownloadCsv = async (filterShopName?: string, filterBatchId?: string) => {
+    const listToExport = filterBatchId
+      ? submissions.filter((s) => s.batch_id === filterBatchId)
+      : filterShopName
       ? submissions.filter((s) => s.shop_name === filterShopName)
       : submissions;
 
@@ -824,7 +859,7 @@ export default function App() {
       // Long all-digit values (barcodes, SKUs) get silently mangled by Excel/Sheets:
       // opening the CSV normally auto-detects them as numbers, and a 13-digit
       // barcode displayed in General format gets shown in scientific notation
-      // (e.g. 6.93255E+12), which -- if read back as digits -- looks like
+      // (e.g. 6.93255E+12), which — if read back as digits — looks like
       // "6932550000000" (zero-padded after ~6 significant figures). The
       // underlying CSV value was never actually wrong, but this happened on
       // every normal "just double-click the file" open, so it needed a real
@@ -933,9 +968,12 @@ export default function App() {
       const url = URL.createObjectURL(blob);
       const link = document.createElement("a");
       link.href = url;
+      const dateStamp = filterBatchId && listToExport[0]?.created_at
+        ? new Date(listToExport[0].created_at).toISOString().slice(0, 10)
+        : new Date().toISOString().slice(0, 10);
       const filename = filterShopName
-        ? `Jumia_BulkSheet_${filterShopName.replace(/[^a-zA-Z0-9]/g, "_")}_${new Date().toISOString().slice(0, 10)}.csv`
-        : `Jumia_BulkSheet_${new Date().toISOString().slice(0, 10)}.csv`;
+        ? `Jumia_BulkSheet_${filterShopName.replace(/[^a-zA-Z0-9]/g, "_")}_${dateStamp}.csv`
+        : `Jumia_BulkSheet_${dateStamp}.csv`;
       link.download = filename;
       link.style.display = "none";
       document.body.appendChild(link);
@@ -2217,34 +2255,76 @@ export default function App() {
                       <p className="text-slate-400 text-xs mt-1">Please try modifying your filter or publish a queue.</p>
                     </div>
                   ) : (() => {
-                    // Group filtered submissions by Vendor, then by Brand, then by Model Family
+                    // Group filtered submissions by Vendor, then by individual
+                    // submission Request (one batch_id per Submit click -- a
+                    // vendor submitting more than once no longer merges into
+                    // one ever-growing bucket; each request stays a distinct,
+                    // dated, independently deletable/exportable group), then
+                    // by Brand, then by Model Family.
                     const groupedSubmissions: Record<string, {
                       count: number;
-                      brands: Record<string, {
+                      batches: Record<string, {
+                        batchId?: string;
+                        shopName: string;
+                        createdAt?: string;
                         count: number;
-                        families: Record<string, Submission[]>
+                        brands: Record<string, {
+                          count: number;
+                          families: Record<string, Submission[]>
+                        }>
                       }>
                     }> = {};
 
                     filteredSubmissions.forEach((s) => {
                       const shop = s.shop_name || "Unknown Shop";
                       if (!groupedSubmissions[shop]) {
-                        groupedSubmissions[shop] = { count: 0, brands: {} };
+                        groupedSubmissions[shop] = { count: 0, batches: {} };
                       }
                       groupedSubmissions[shop].count++;
 
-                      const brand = s.brand || "Other";
-                      if (!groupedSubmissions[shop].brands[brand]) {
-                        groupedSubmissions[shop].brands[brand] = { count: 0, families: {} };
+                      // Fallback key for any legacy row that somehow has no
+                      // batch_id -- keeps it groupable/deletable rather than
+                      // silently dropped from view.
+                      const batchKey = s.batch_id || `legacy|${s.created_at || "unknown"}`;
+                      if (!groupedSubmissions[shop].batches[batchKey]) {
+                        groupedSubmissions[shop].batches[batchKey] = {
+                          batchId: s.batch_id,
+                          shopName: shop,
+                          createdAt: s.created_at,
+                          count: 0,
+                          brands: {}
+                        };
                       }
-                      groupedSubmissions[shop].brands[brand].count++;
+                      groupedSubmissions[shop].batches[batchKey].count++;
+
+                      const brand = s.brand || "Other";
+                      if (!groupedSubmissions[shop].batches[batchKey].brands[brand]) {
+                        groupedSubmissions[shop].batches[batchKey].brands[brand] = { count: 0, families: {} };
+                      }
+                      groupedSubmissions[shop].batches[batchKey].brands[brand].count++;
 
                       const fam = s.model_family || "Other Family";
-                      if (!groupedSubmissions[shop].brands[brand].families[fam]) {
-                        groupedSubmissions[shop].brands[brand].families[fam] = [];
+                      if (!groupedSubmissions[shop].batches[batchKey].brands[brand].families[fam]) {
+                        groupedSubmissions[shop].batches[batchKey].brands[brand].families[fam] = [];
                       }
-                      groupedSubmissions[shop].brands[brand].families[fam].push(s);
+                      groupedSubmissions[shop].batches[batchKey].brands[brand].families[fam].push(s);
                     });
+
+                    const formatBatchDate = (iso?: string) => {
+                      if (!iso) return "Unknown date";
+                      try {
+                        return new Date(iso).toLocaleString("en-GB", {
+                          timeZone: "Africa/Cairo",
+                          day: "2-digit",
+                          month: "short",
+                          year: "numeric",
+                          hour: "2-digit",
+                          minute: "2-digit"
+                        }) + " (Cairo)";
+                      } catch {
+                        return iso;
+                      }
+                    };
 
                     return (
                       <div className="p-4 space-y-4">
@@ -2305,8 +2385,79 @@ export default function App() {
                                     transition={{ duration: 0.25, ease: "easeInOut" }}
                                     className="border-t border-slate-100 bg-slate-50/10 p-4 space-y-3 overflow-hidden"
                                   >
-                                    {Object.entries(shopData.brands).map(([brand, bData]) => {
-                                      const brandKey = `${shop}|${brand}`;
+                                    {Object.entries(shopData.batches)
+                                      .sort(([, a], [, b]) => (b.createdAt || "").localeCompare(a.createdAt || ""))
+                                      .map(([batchKey, batchData]) => {
+                                      const isBatchOpen = adminOpenBatches[batchKey] === true;
+
+                                      return (
+                                        <div
+                                          key={batchKey}
+                                          className={`border rounded-xl overflow-hidden transition-all duration-300 bg-white ${
+                                            isBatchOpen
+                                              ? "border-brand/25 ring-1 ring-brand/10 shadow-sm"
+                                              : "border-slate-200 shadow-sm hover:border-slate-300"
+                                          }`}
+                                        >
+                                          {/* Submission Request (batch) Header */}
+                                          <div
+                                            className={`px-4 py-3 flex items-center justify-between gap-3 flex-wrap sm:flex-nowrap transition-all duration-300 ${
+                                              isBatchOpen ? "bg-brand/5 border-b border-brand/10" : "bg-slate-50 hover:bg-slate-100 border-b border-slate-200"
+                                            }`}
+                                          >
+                                            <div
+                                              onClick={() => {
+                                                setAdminOpenBatches(prev => ({ ...prev, [batchKey]: !isBatchOpen }));
+                                              }}
+                                              className="flex items-center gap-2.5 cursor-pointer select-none flex-1 min-w-0"
+                                            >
+                                              <Clock className="w-4 h-4 text-slate-400 flex-shrink-0" />
+                                              <div className="min-w-0">
+                                                <div className={`font-bold text-sm truncate ${isBatchOpen ? "text-brand-dark" : "text-slate-800"}`}>
+                                                  {formatBatchDate(batchData.createdAt)}
+                                                </div>
+                                                <div className="text-[10px] text-slate-500">
+                                                  {batchData.count} {batchData.count === 1 ? "variant" : "variants"} in this request
+                                                </div>
+                                              </div>
+                                              <ChevronDown className={`w-4 h-4 text-slate-400 transition-transform duration-300 flex-shrink-0 ${
+                                                isBatchOpen ? "rotate-180 text-brand" : ""
+                                              }`} />
+                                            </div>
+
+                                            <div className="flex items-center gap-1.5 flex-shrink-0">
+                                              <button
+                                                onClick={() => handleDownloadCsv(undefined, batchData.batchId)}
+                                                disabled={!batchData.batchId}
+                                                className="px-3 py-1.5 bg-emerald-50 hover:bg-emerald-100 disabled:opacity-40 disabled:cursor-not-allowed border border-emerald-200 hover:border-emerald-400 text-emerald-700 font-bold text-[11px] rounded-lg transition-all flex items-center gap-1 shadow-sm cursor-pointer"
+                                                title="Download CSV for this request only"
+                                              >
+                                                <Download className="w-3.5 h-3.5" />
+                                                <span>CSV</span>
+                                              </button>
+                                              <button
+                                                onClick={() => handleAdminDeleteBatch(batchData.batchId, batchData.shopName, batchData.createdAt)}
+                                                className="px-3 py-1.5 bg-rose-50 hover:bg-rose-100 border border-rose-200 hover:border-rose-400 text-rose-700 font-bold text-[11px] rounded-lg transition-all flex items-center gap-1 shadow-sm cursor-pointer"
+                                                title="Delete this entire submission request"
+                                              >
+                                                <Trash className="w-3.5 h-3.5" />
+                                                <span>Delete Request</span>
+                                              </button>
+                                            </div>
+                                          </div>
+
+                                          {/* Batch Body - Brands list */}
+                                          <AnimatePresence initial={false}>
+                                            {isBatchOpen && (
+                                              <motion.div
+                                                initial={{ height: 0, opacity: 0 }}
+                                                animate={{ height: "auto", opacity: 1 }}
+                                                exit={{ height: 0, opacity: 0 }}
+                                                transition={{ duration: 0.2, ease: "easeInOut" }}
+                                                className="p-3 space-y-2.5 bg-slate-50/20 overflow-hidden"
+                                              >
+                                    {Object.entries(batchData.brands).map(([brand, bData]) => {
+                                      const brandKey = `${batchKey}|${brand}`;
                                       const isBrandOpen = adminOpenBrands[brandKey] === true;
 
                                       return (
@@ -2355,7 +2506,7 @@ export default function App() {
                                                 className="divide-y divide-slate-150 overflow-hidden"
                                               >
                                                 {Object.entries(bData.families).map(([fam, items]) => {
-                                                  const famKey = `${shop}|${brand}|${fam}`;
+                                                  const famKey = `${brandKey}|${fam}`;
                                                   const isFamOpen = adminOpenFamilies[famKey] === true;
 
                                                   return (
@@ -2448,6 +2599,12 @@ export default function App() {
                                                     </div>
                                                   );
                                                 })}
+                                              </motion.div>
+                                            )}
+                                          </AnimatePresence>
+                                        </div>
+                                      );
+                                    })}
                                               </motion.div>
                                             )}
                                           </AnimatePresence>
